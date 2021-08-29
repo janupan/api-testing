@@ -1,0 +1,27 @@
+{
+  "name": "api-testing",
+  "version": "1.0.0",
+  "description": "API Testing for Flip",
+  "main": "index.js",
+  "scripts": {
+    "test-api": "./node_modules/mocha/bin/mocha ./api/test --recursive --reporter mochawesome --reporter-options reportDir=reports/mochawesome/ --timeout 180000",
+    "reports": "open 'reports/mochawesome/mochawesome.html'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janupan/api-testing.git"
+  },
+  "author": "Januari Panjaitan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janupan/api-testing/issues"
+  },
+  "homepage": "https://github.com/janupan/api-testing#readme",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "dotenv": "^10.0.0",
+    "mocha": "^9.1.1",
+    "mochawesome": "^6.2.2",
+    "supertest": "^6.1.6"
+  }
+}

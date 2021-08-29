@@ -1,0 +1,40 @@
+{
+  "successOk": 200,
+  "successCreated": 201,
+  "successAccepted": 202,
+  "successNoContent": 204,
+  "failedBadRequest": {
+  "codeNumber": 400,
+  "codeMessage": "BadRequest"
+  },
+  "failedUnauthorized": {
+  "codeNumber": 401,
+  "codeMessage": "UNAUTHORIZED"
+  },
+  "failedForbiddenInvalidToken": {
+  "codeNumber": 403,
+  "codeMessageForbidden": "Forbidden",
+  "codeMessageInvalidToken": "INVALID_TOKEN"
+  },
+  "failedNotFound": {
+  "codeNumber": 404,
+  "codeMessage": "NotFound"
+  },
+  "failedMethodNotAllowed": {
+    "codeNumber": 405,
+    "codeMessage":"Method Not Allowed"
+  },
+  "failedMethodNotAcceptable": {
+    "codeNumber": 406,
+    "codeMessage":"Not Acceptable"
+  },
+  "failedUnprocessableEntity": {
+    "codeNumber": 422,
+    "codeMessage":"Unprocessable Entity"
+  },
+  "failedInternalServerError": 500,
+  "failedUnsupportedMediaType":{
+    "codeNumber": 415,
+    "codeMessage": "Content is not supported"
+  }
+  }
