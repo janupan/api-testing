@@ -1,15 +1,15 @@
 {
   "stats": {
-    "suites": 2,
-    "tests": 4,
+    "suites": 1,
+    "tests": 1,
     "passes": 1,
     "pending": 0,
-    "failures": 3,
-    "start": "2021-08-29T06:55:34.447Z",
-    "end": "2021-08-29T06:55:36.490Z",
-    "duration": 2043,
-    "testsRegistered": 4,
-    "passPercent": 25,
+    "failures": 0,
+    "start": "2021-08-29T07:17:29.435Z",
+    "end": "2021-08-29T07:17:30.430Z",
+    "duration": 995,
+    "testsRegistered": 1,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "11bf34ff-8b2a-4d98-bb8b-ec3dad12c496",
+      "uuid": "6f341ab6-e0b6-4d44-b7a6-fad03b73f8d8",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,129 +27,40 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "0e14d5f3-0dc7-4b03-acef-7a484ceb27e9",
-          "title": "As an User, I should be able to get list user",
-          "fullFile": "/Users/janupan/Documents/api-testing/api/test/list_users_test.js",
-          "file": "/api/test/list_users_test.js",
+          "uuid": "da2a7d04-f77d-4d47-8291-17e0ff8c2994",
+          "title": "As an User, I should be able to post user",
+          "fullFile": "/Users/janupan/Documents/api-testing/api/test/create_user_test.js",
+          "file": "/api/test/create_user_test.js",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "@happy should success get data with valid request parameter",
-              "fullTitle": "As an User, I should be able to get list user @happy should success get data with valid request parameter",
+              "title": "@happy should success post data with valid request parameter",
+              "fullTitle": "As an User, I should be able to post user @happy should success post data with valid request parameter",
               "timedOut": false,
-              "duration": 179,
+              "duration": 982,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "const response = await UsersApi.getUsersList();\nexpect(response.status).to.equal(responseMessageCode.successOk);",
+              "code": "body = testData.successCreateUser;\nna_me = 'test_' + randomstring.generate(3); \njob_ran = 'SQA_' + randomstring.generate(3);\nbody.name = na_me;\nbody.job = job_ran;\nconst response = await CreateUserApi.postUser(body);\nexpect(response.status).to.equal(responseMessageCode.successCreated);\nexpect(response.body.name).to.equal(body.name);\nexpect(response.body.job).to.equal(body.job);",
               "err": {},
-              "uuid": "db8d0977-7b89-4962-8586-d7755122c20b",
-              "parentUUID": "0e14d5f3-0dc7-4b03-acef-7a484ceb27e9",
+              "uuid": "c71b8a16-9e6d-4719-ac97-91c978e6c4e5",
+              "parentUUID": "da2a7d04-f77d-4d47-8291-17e0ff8c2994",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "db8d0977-7b89-4962-8586-d7755122c20b"
+            "c71b8a16-9e6d-4719-ac97-91c978e6c4e5"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 179,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 180000
-        },
-        {
-          "uuid": "4dc0af94-9b92-427e-9614-4ab9a065cf5e",
-          "title": "As an User, I should not be able to get list user",
-          "fullFile": "/Users/janupan/Documents/api-testing/api/test/list_users_test.js",
-          "file": "/api/test/list_users_test.js",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "@neg get error when invalid path",
-              "fullTitle": "As an User, I should not be able to get list user @neg get error when invalid path",
-              "timedOut": false,
-              "duration": 985,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
-              "pending": false,
-              "context": null,
-              "code": "const response = await UsersApi.getUsersInvalidPath();\nexpect(response.status).to.equal(responseMessageCode.failedNotFound.codeNumber);\nexpect(response.body.detail).to.be.equal(\"Not Found\");",
-              "err": {
-                "message": "AssertionError: expected 200 to equal 404",
-                "estack": "AssertionError: expected 200 to equal 404\n    at Context.<anonymous> (api/test/list_users_test.js:29:36)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)",
-                "diff": "- 200\n+ 404\n"
-              },
-              "uuid": "bce089f9-b549-4c1c-94de-fec1e39053fa",
-              "parentUUID": "4dc0af94-9b92-427e-9614-4ab9a065cf5e",
-              "isHook": false,
-              "skipped": false
-            },
-            {
-              "title": "@neg get error when all requests not matching the whitelist with HTTP response code 405 Method not allowed [POST]",
-              "fullTitle": "As an User, I should not be able to get list user @neg get error when all requests not matching the whitelist with HTTP response code 405 Method not allowed [POST]",
-              "timedOut": false,
-              "duration": 139,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
-              "pending": false,
-              "context": null,
-              "code": "const response = await UsersApi.getUsersInvalidPath();\nexpect(response.status).to.equal(responseMessageCode.failedMethodNotAllowed.codeNumber);",
-              "err": {
-                "message": "AssertionError: expected 200 to equal 405",
-                "estack": "AssertionError: expected 200 to equal 405\n    at Context.<anonymous> (api/test/list_users_test.js:35:36)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)",
-                "diff": "- 200\n+ 405\n"
-              },
-              "uuid": "d3454478-bb40-42bf-b08c-d61309362425",
-              "parentUUID": "4dc0af94-9b92-427e-9614-4ab9a065cf5e",
-              "isHook": false,
-              "skipped": false
-            },
-            {
-              "title": "@neg get error when all requests not matching the whitelist with HTTP response code 405 Method not allowed [PATCH]",
-              "fullTitle": "As an User, I should not be able to get list user @neg get error when all requests not matching the whitelist with HTTP response code 405 Method not allowed [PATCH]",
-              "timedOut": false,
-              "duration": 726,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
-              "pending": false,
-              "context": null,
-              "code": "const response = await UsersApi.getUsersNotMatchingHttpMethodsPatch();\nexpect(response.status).to.equal(responseMessageCode.failedMethodNotAllowed.codeNumber);",
-              "err": {
-                "message": "AssertionError: expected 200 to equal 405",
-                "estack": "AssertionError: expected 200 to equal 405\n    at Context.<anonymous> (api/test/list_users_test.js:40:36)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)",
-                "diff": "- 200\n+ 405\n"
-              },
-              "uuid": "2f3193ad-2de8-43c4-8721-22d8e071febb",
-              "parentUUID": "4dc0af94-9b92-427e-9614-4ab9a065cf5e",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [],
-          "failures": [
-            "bce089f9-b549-4c1c-94de-fec1e39053fa",
-            "d3454478-bb40-42bf-b08c-d61309362425",
-            "2f3193ad-2de8-43c4-8721-22d8e071febb"
-          ],
-          "pending": [],
-          "skipped": [],
-          "duration": 1850,
+          "duration": 982,
           "root": false,
           "rootEmpty": false,
           "_timeout": 180000

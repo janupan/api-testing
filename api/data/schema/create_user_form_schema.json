@@ -1,0 +1,26 @@
+{
+    "postResponseValidSchema": {
+        "type": "object",
+        "required": [],
+        "properties": {
+            "name": {
+                "$id": "#/properties/name",
+                "type": "string"
+            },
+            "job": {
+                "$id": "#/properties/job",
+                "type": "string"
+            },
+            "id": {
+                "$id": "#/properties/id",
+                "type": "string",
+                "pattern": "^(.*)$"
+            },
+            "createdAt": {
+                "$id": "#/properties/createdAt",
+                "type": "string",
+                "pattern": "^(.*)$"
+            }
+        }
+    }
+}
